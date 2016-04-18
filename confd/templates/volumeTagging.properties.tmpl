@@ -1,2 +1,20 @@
-# Disable VolumeTagging Monkey
-simianarmy.volumeTagging.enabled = false
+# see documentation at:
+# https://github.com/Netflix/SimianArmy/wiki/Configuration
+
+# The properties in this file are used by the monkey that tags volumes with information that
+# Janitor Monkey will need for cleaning up volumes.
+
+# Let the monkey run.
+simianarmy.volumeTagging.enabled = {{getv "/simianarmy/volumetagging/enabled" "true"}}
+# Running in the dryrun mode, no tagging is really done.
+simianarmy.volumeTagging.leashed = {{getv "/simianarmy/volumetagging/leashed" "true"}}
+
+# Set the property below if you need the owner alias to be converted to a valid email address
+{{if exists "/simianarmy/volumeTagging/owneremaildomain" -}}
+simianarmy.volumeTagging.ownerEmailDomain = {{getv "/simianarmy/volumetagging/owneremaildomain"}}
+{{end -}}
+
+# The volume tagging monkey always runs. The tagging process is needed by the Janitor Monkey to
+# clean up volumes. We can keep the volume tagging monkey running so we don't miss any change
+# of volumes.
+simianarmy.calendar.isMonkeyTime = true

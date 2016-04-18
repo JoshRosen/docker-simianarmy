@@ -141,9 +141,15 @@ Janitor Monkey is disabled and cannot be configured at the moment.
 
 Conformity Monkey is disabled and cannot be configured at the moment.
 
-### VolumeTagging Monkey Properties
+### Volume Tagging Monkey Properties
 
-VolumeTagging Monkey is disabled and cannot be configured at the moment.
+| Key | Default |
+| --- | ------- |
+| /simianarmy/volumetagging/enabled | true |
+| /simianarmy/volumetagging/leashed | true |
+| /simianarmy/volumetagging/owneremaildomain | |
+
+See https://github.com/Netflix/SimianArmy/wiki/VolumeTagging-Settings for a detailed description of the properties.
 
 ## Author
 
